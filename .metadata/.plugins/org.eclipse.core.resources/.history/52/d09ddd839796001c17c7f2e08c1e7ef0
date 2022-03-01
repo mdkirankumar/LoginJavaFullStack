@@ -1,0 +1,9 @@
+package com.user.demo.service;
+import com.user.demo.controller.Optional;
+import com.user.demo.model.User;
+
+import java.util.List;
+
+public interface UserService { 
+	public User saveUser(User user) ;
+}

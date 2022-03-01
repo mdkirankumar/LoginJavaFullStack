@@ -1,0 +1,42 @@
+package com.user.demo.controller;
+
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
+import com.user.demo.model.User;
+import com.user.demo.service.UserService;
+import com.user.demo.repository.UserRepository;
+
+@RestController
+@RequestMapping("/api/v1")
+@CrossOrigin
+
+public class UserController {
+	@Autowired
+	private UserService userService;
+	private UserRepository repo;
+	
+	@PostMapping("/register")
+	 public String add(@RequestBody User user){
+		userService.saveUser(user);
+        return "New user is added";
+    }
+	
+	@PostMapping("/login")
+	public String login(@RequestBody User user) {
+		System.out.println(user);
+		String email = user.getEmail();        
+
+		User userByEmail = repo.findByEmail(email);
+		if(userByEmail != null) {
+			return "welcome";
+		} else {
+			return "good bye";
+		}
+	}
+}

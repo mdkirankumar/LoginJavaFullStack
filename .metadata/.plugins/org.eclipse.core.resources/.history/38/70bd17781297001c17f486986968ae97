@@ -1,0 +1,18 @@
+package com.user.demo.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.user.demo.model.LoginUser;
+import com.user.demo.repository.LoginUserRepository;
+
+public class LoginUserService {
+	@Autowired
+	private LoginUserRepository repo;
+	
+	public LoginUser login(String username, String password) {
+		LoginUser user= repo.findByUsernameAndPassword(username, password);
+		return user;
+		
+	}
+
+}

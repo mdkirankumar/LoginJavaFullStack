@@ -1,0 +1,14 @@
+package com.user.demo.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+
+import com.user.demo.service.LoginUserService;
+
+@Controller
+public class LoginUserController {
+	
+	@Autowired
+	private LoginUserService loginService;
+
+}

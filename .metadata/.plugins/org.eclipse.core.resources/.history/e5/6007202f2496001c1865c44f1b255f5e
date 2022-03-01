@@ -1,0 +1,15 @@
+package com.user.demo.service;
+import com.user.demo.model.User;
+
+import java.util.List;
+
+public interface UserService { 
+	public static User saveUser(User user) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	public List<User> getAllUsers();
+	 
+	}
+
+
